@@ -13,16 +13,16 @@ app.get('/', async (req,res) => {
 app.get('/test', async (req, res) => {
   var session: string = req.session.id || ""
   try{
-    if(!session){  // Initialize when does not exist
+    if(!session){  // Initialize session when one does not exist
       res.status(200).json({ res: "New session created!"})
     }
     else{
-      // Add new chat message to existing chat history
+      // Add new operation
       res.status(200).json({ res: "An existing session was found!"})
       
     }
     // Update session data here
-    //Then Finish or pass chat to next step
+    //Then resolve or pass data to next step
   }catch(err){
     res.status(400).json({res: `An error occurred: ${err}`})
   }
